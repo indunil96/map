@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fukuoka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="">Japan Map</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="text-center">
+          <h1>Fukuoka</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="4"
+                  aria-label="Slide 5"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="5"
+                  aria-label="Slide 6"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://wallpapersok.com/images/hd/fukuoka-city-digital-portrait-g2hsgog87hiwxarx.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://wallpapersok.com/images/hd/peaceful-road-in-fukuoka-zj6denvgle0x81c4.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://s1.1zoom.me/b5050/684/Japan_Houses_441943_1920x1080.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://wallpapers.com/images/hd/hakata-station-in-fukuoka-p2fwgwdsinv458v8.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://pbs.twimg.com/media/EVPhGO5VAAA3hxg.jpg:large"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://wallpapersok.com/images/hd/establishments-in-fukuoka-city-iku6n2fdr9twwhl5.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div id="map" style="width: 100%; height: 500px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center mt-3">
+          <p>
+            Fukuoka is the sixth-largest city in Japan and the capital city of
+            Fukuoka Prefecture, Japan. The city is built along the shores of
+            Hakata Bay, and has been a center of international commerce since
+            ancient times. The area has long been considered the gateway to the
+            country, as it is the nearest point among Japan's main islands to
+            the Asian mainland. Although humans occupied the area since the
+            Jomon period, some of the earliest settlers of the Yayoi period
+            arrived in the Fukuoka area. The city rose to prominence during the
+            Yamato period. Because of the cross-cultural exposure, and the
+            relatively great distance from the social and political centers of
+            Kyoto, Osaka, and later, Edo (Tokyo), Fukuoka gained a distinctive
+            local culture and dialect that has persisted to the present.
+          </p>
+          <br />
+          <p>
+            Fukuoka is the most populous city on Kyūshū island, followed by
+            Kitakyushu. It is the largest city and metropolitan area west of
+            Keihanshin. The city was designated by government ordinance on April
+            1, 1972. Greater Fukuoka, with a population of 2.5 million people
+            (2005 census), is part of the heavily industrialized
+            Fukuoka–Kitakyushu zone.
+          </p>
+          <br />
+          <p>
+            福岡市は、福岡県西部に位置する市。福岡県の県庁所在地であり、九州地方最大の人口を有する政令指定都市でもある。九州地方の行政・経済・交通の中心地として同地方最多の人口を有する。東京23区を除いた全国の市でも横浜市、大阪市、名古屋市、札幌市に次ぐ5番目の人口を擁し、人口増加数・人口増加率ともに政令指定都市の中で首位。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      var map = L.map("map", {
+        center: [33.5899, 130.4017],
+        zoom: 13,
+        minZoom: 13,
+        maxBounds: [
+          [33.3, 129.9],
+          [34.0, 130.9],
+        ],
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
+
+      var marker = L.marker([33.5899, 130.4017])
+        .addTo(map)
+        .bindPopup("<b>Welcome to Fukuoka!</b>")
+        .openPopup();
+
+        L.marker([33.585861, 130.37625])
+        .addTo(map)
+        .bindPopup("<b>大濠公園</b><br><a href='https://en.wikipedia.org/wiki/%C5%8Chori_Park' target='_blank'>More Info</a>")
+        .openPopup();
+
+        L.marker([33.59325, 130.351472])
+        .addTo(map)
+        .bindPopup("<b>福岡タワー</b><br><a href='https://en.wikipedia.org/wiki/Fukuoka_Tower' target='_blank'>More Info</a>")
+        .openPopup();
+
+        L.marker([33.591111, 130.410556])
+        .addTo(map)
+        .bindPopup("<b>キャナルシティ博多</b><br><a href='https://en.wikipedia.org/wiki/Canal_City_Hakata' target='_blank'>More Info</a>")
+        .openPopup();
+    </script>
+  </body>
+</html>

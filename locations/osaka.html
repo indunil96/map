@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Osaka</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="">Japan Map</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="text-center">
+          <h1>Osaka</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="4"
+                  aria-label="Slide 5"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="5"
+                  aria-label="Slide 6"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://wallpapersok.com/images/hd/osaka-castle-and-fuji-mountain-pzhk54ri4mn3ccbi.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://wallpapercave.com/wp/wp8852468.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://h2.gifposter.com/bingImages/OsakaNight_1920x1080.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://s1.1zoom.me/b5544/970/Japan_Parks_Pond_Osaka_Reflection_Trees_Night_539040_1920x1080.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://s1.1zoom.me/b3759/551/Sky_Houses_Japan_Osaka_Megapolis_From_above_513238_1920x1080.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://getwallpapers.com/wallpaper/full/0/7/5/1090815-beautiful-osaka-wallpaper-1920x1080-for-iphone-6.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="map" style="width: 100%; height: 500px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center mt-3">
+          <p>
+            Osaka is a designated city in the Kansai region of Honshu in Japan.
+            It is the capital of and most populous city in Osaka Prefecture, and
+            the third-most populous city in Japan, following the special wards
+            of Tokyo and Yokohama. With a population of 2.7 million in the 2020
+            census, it is also the largest component of the Keihanshin
+            Metropolitan Area, which is the second-largest metropolitan area in
+            Japanand the 10th-largest urban area in the world with more than 19
+            million inhabitants.[3]
+          </p>
+          <br />
+          <p>
+            Ōsaka was traditionally considered Japan's economic hub. By the
+            Kofun period (300–538) it had developed into an important regional
+            port, and in the 7th and 8th centuries, it served briefly as the
+            imperial capital. Osaka continued to flourish during the Edo period
+            (1603–1867) and became known as a center of Japanese culture.
+            Following the Meiji Restoration, Osaka greatly expanded in size and
+            underwent rapid industrialization. In 1889, Osaka was officially
+            established as a municipality. The construction boom accelerated
+            population growth throughout the following decades, and by the
+            1900s, Osaka was the industrial hub in the Meiji and Taishō periods.
+            Osaka made noted contributions to redevelopment, urban planning and
+            zoning standards in the postwar period, and the city developed
+            rapidly as one of the major financial centers in the Keihanshin
+            Metropolitan Area.
+          </p>
+          <br />
+          <p>
+            大阪市は、大阪府中部に位置する市。大阪府の府庁所在地および近畿地方で最多の人口を有する市であり、政令指定都市に指定されている。市域内には日本屈指の華やかな摩天楼、繁華街を据える。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script>
+      var osakaMap = L.map("map", {
+        center: [34.693737, 135.502167],
+        zoom: 12,
+        minZoom: 12,
+        maxBounds: [
+          [34.4, 135.2],
+          [35.0, 135.8],
+        ],
+      });
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(osakaMap);
+      L.marker([34.69, 135.50])
+        .addTo(osakaMap)
+        .bindPopup("<b>Osaka</b><br>Famous for food and nightlife")
+        .openPopup();
+
+        L.marker([34.6937, 135.5023])
+        .addTo(osakaMap)
+        .bindPopup("<b>大阪城</b><br><a href='https://en.wikipedia.org/wiki/Osaka_Castle' target='_blank'>More Info</a>")
+        .openPopup();
+
+        L.marker([34.6687, 135.5016])
+        .addTo(osakaMap)
+        .bindPopup("<b>道頓堀</b><br><a href='https://en.wikipedia.org/wiki/D%C5%8Dtonbori' target='_blank'>More Info</a>")
+        .openPopup();
+
+        L.marker([34.6643, 135.4326])
+        .addTo(osakaMap)
+        .bindPopup("<b>ユニバーサル・スタジオ・ジャパン</b><br><a href='https://en.wikipedia.org/wiki/Universal_Studios_Japan' target='_blank'>More Info</a>")
+        .openPopup();
+    </script>
+  </body>
+</html>

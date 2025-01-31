@@ -1,0 +1,41 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    text-align: center;
+}
+
+#map {
+    height:80vh;
+    width: 100%;
+}
+
+#search{
+    margin-top: 20px;
+}
+
+#suggestions {
+    position: absolute; /* Ensures it is positioned relative to the parent */
+    top: 100%;          /* Places it just below the input field */
+    left: 0;            /* Aligns it to the left of the input field */
+    z-index: 1050;      /* Ensures it appears above other elements */
+    width: 100%;        /* Matches the input field's width */
+    max-height: 200px;  /* Optional: Limits the height for scrollability */
+    overflow-y: auto;   /* Adds a scrollbar if content overflows */
+    border: 1px solid #ddd; /* Adds a border for better visibility */
+    background-color: white; /* Matches the background of the input */
+    display: none;      /* Hidden by default */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    border-radius: 4px; /* Rounds the edges */
+}
+
+#suggestions .dropdown-item {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions .dropdown-item:hover {
+    background-color: #f8f9fa;
+}

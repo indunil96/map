@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sapporo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="">Japan Map</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="text-center">
+          <h1>Sapporo</h1>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="carouselExampleCaptions" class="carousel slide">
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="4"
+                  aria-label="Slide 5"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="5"
+                  aria-label="Slide 6"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://newsatcl-pctr.c.yimg.jp/dk/expert-image/muraihiroko/article/00166642/top_1639572133913.jpeg?exp=10800"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://cdn.gltjp.com/edo/img/summary/sapporo/hero__20250117-130507__.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://www.agoda.com/wp-content/uploads/2024/02/Featured-image-Former-Hokkaido-Government-Building-Sapporo-Japan.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://siennafennec5.sakura.ne.jp/img/dsc07882.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://byfood.b-cdn.net/api/public/assets/56389/content"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://h2.gifposter.com/bingImages/BluePond2024_1920x1080.jpg"
+                    class="d-block w-100 custom-carousel-image"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div id="map" style="width: 100%; height: 500px"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center mt-3">
+          <p>
+            Sapporo is a designated city in Hokkaido, Japan. Located in the
+            southwest of Hokkaido, it lies within the alluvial fan of the
+            Toyohira River, a tributary of the Ishikari River. Sapporo is the
+            capital of Hokkaido Prefecture and Ishikari Subprefecture. As of
+            July 31, 2023, the city has a population of 1,959,750, making it the
+            largest city in Hokkaido and the largest north of Tokyo. It ranks as
+            the fifth most populous city in Japan and is Hokkaido's cultural,
+            economic, and political center.
+          </p>
+          <br />
+          <p>
+            Originally a plain sparsely inhabited by the indigenous Ainu people,
+            there were a few trade posts of the Matsumae domain in the area
+            during the Edo period. The city began as an administrative centre
+            with the establishment of the Hokkaido Development Commission
+            headquarters in 1869. Inspired by the ancient cities of Kyoto and
+            Heijō-kyō, it adopted a grid plan and developed around Odori Park.
+            After the Second World War, it replaced Otaru as Hokkaido's
+            commercial and business hub, and its population surpassed one
+            million by 1970.
+          </p>
+          <br />
+          <p>
+            札幌市は、北海道の道央地方に位置する市。道庁所在地および石狩振興局所在地。政令指定都市であり、10の行政区が置かれている。北海道の行政・経済・文化の中心地であり、道内および三大都市圏以外の国内で人口最多の市（人口1,968,326人、2024年12月1日現在）である。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <script>
+      var sapporoMap = L.map("map", {
+        center: [43.062095, 141.354376],
+        zoom: 12,
+        minZoom: 12,
+        maxBounds: [
+          [42.7, 140.9],
+          [43.5, 141.8],
+        ],
+      });
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(sapporoMap);
+
+      L.marker([43.061944, 141.354444])
+        .addTo(sapporoMap)
+        .bindPopup("<b>Sapporo</b><br>Capital of Hokkaido")
+        .openPopup();
+
+      L.marker([43.071524, 141.368889])
+        .addTo(sapporoMap)
+        .bindPopup(
+          "<b>サッポロビール博物館</b><br><a href='https://en.wikipedia.org/wiki/Sapporo_Beer_Museum' target='_blank'>More Info</a>")
+        .openPopup();
+
+      L.marker([43.0687, 141.3508])
+        .addTo(sapporoMap)
+        .bindPopup(
+          "<b>札幌市時計台</b><br><a href='https://en.wikipedia.org/wiki/Sapporo_Clock_Tower' target='_blank'>More Info</a>")
+        .openPopup();
+
+      L.marker([43.0103, 141.3976])
+        .addTo(sapporoMap)
+        .bindPopup(
+          "<b>モエレ沼公園</b><br><a href='https://en.wikipedia.org/wiki/Moerenuma_Park' target='_blank'>More Info</a>")
+        .openPopup();
+    </script>
+  </body>
+</html>
